@@ -1,0 +1,24 @@
+{
+    "LOGIN": {
+        "TITLE_LOGIN": "Iniciar sesión",
+        "LABEL_USER": "Correo electrónico",
+        "PLACEHOLDER_USER": "Escribe tu correo electronico",
+        "REQUIRED_USER": "El usuario es obligatorio",
+        "INVALID_USER": "El correo electrónico debe ser válido",
+        "LABEL_PASS": "Contraseña",
+        "PLACEHOLDER_PASS": "Ingresa tu contraseña",
+        "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+        "REQUIRED_PASS": "La contraseña es obligatoria",
+        "INVALID_PASS": "La contraseña debe tener al menos 6 caracteres",
+        "CREATE_ACCOUNT": "¿No tienes una cuenta?",
+        "CREATE_ACCOUNT_LINK": "Crear una cuenta"
+    },
+    "BUTTON": {
+        "LOGIN": "Iniciar sesión",
+        "LOGOUT": "Cerrar sesión",
+        "CHANGE_THEME": "Cambiar tema"
+    },
+    "MENU": {
+        "HOME": "Inicio"
+    }
+}
