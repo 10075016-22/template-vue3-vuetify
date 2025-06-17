@@ -16,9 +16,22 @@
     "BUTTON": {
         "LOGIN": "Iniciar sesión",
         "LOGOUT": "Cerrar sesión",
-        "CHANGE_THEME": "Cambiar tema"
+        "CHANGE_THEME": "Cambiar tema",
+        "NEW": "Nuevo"
     },
     "MENU": {
         "HOME": "Inicio"
+    },
+    "DATATABLE": {
+        "LOADING": "Cargando...",
+        "NO_DATA": "No hay datos"
+    },
+    "STATUS": {
+        "ACTIVE": "Activo",
+        "INACTIVE": "Inactivo"
+    },
+    "YES_NO": {
+        "YES": "Sí",
+        "NO": "No"
     }
 }

@@ -16,9 +16,22 @@
     "BUTTON": {
         "LOGIN": "Login",
         "LOGOUT": "Logout",
-        "CHANGE_THEME": "Change theme"
+        "CHANGE_THEME": "Change theme",
+        "NEW": "New"
     },
     "MENU": {
         "HOME": "Home"
+    },
+    "DATATABLE": {
+        "LOADING": "Loading...",
+        "NO_DATA": "No data"
+    },
+    "STATUS": {
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive"
+    },
+    "YES_NO": {
+        "YES": "Yes",
+        "NO": "No"
     }
 }

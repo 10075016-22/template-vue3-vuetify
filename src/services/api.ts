@@ -39,7 +39,7 @@ apiClient.interceptors.response.use((response: AxiosResponse<ApiResponse>) => {
   return response
 }, (error) => {
   const { resetUser } = userStore()
-  if(error.response.data.nStatusCode === 401) {
+  if(error.response.status === 401) {
     // El usuario pasa a su estado inicial
     console.log("Error 401");
     

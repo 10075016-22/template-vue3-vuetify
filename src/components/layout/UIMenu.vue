@@ -1,10 +1,10 @@
 <template>
   <v-navigation-drawer color="backgroundPrimary">
     <v-list>
-      <v-list-item :subtitle="oUser.email" :title="oUser.name" >
+      <v-list-item :subtitle="oUser?.email" :title="oUser?.name" >
         <template v-slot:prepend>
           <v-avatar color="primary" size="35">
-            <span class="text-h6">{{ oUser.name.charAt(0).toUpperCase() }}</span>
+            <span class="text-h6">{{ oUser?.name.charAt(0).toUpperCase() }}</span>
           </v-avatar>
         </template>
       </v-list-item>
@@ -12,7 +12,6 @@
     <v-divider />
 
     <v-list density="compact" nav>
-      <v-list-item :to="{ name: 'dashboard' }" :title="$t('MENU.HOME')" prepend-icon="mdi-home" />
       <template v-for="item in items" :key="item.id">
         <v-divider v-if="item.divider" />
         <v-list-item 

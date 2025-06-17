@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
@@ -16,12 +17,14 @@
     "pinia-plugin-persistedstate": "^4.3.0",
     "vitest": "^3.2.3",
     "vue": "^3.5.13",
+    "vue-google-charts": "^1.1.0",
     "vue-i18n": "^11.1.5",
     "vue-router": "^4.5.1",
     "vuetify": "^3.8.9"
   },
   "devDependencies": {
     "@types/md5": "^2.3.5",
+    "@types/node": "^24.0.3",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
     "md5": "^2.3.0",

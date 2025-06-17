@@ -8,7 +8,9 @@
     },
     "module": "ESNext",
     "moduleResolution": "Node",
-    "types": ["vite/client", "vue"]
+    "types": ["vite/client", "vue"],
+    "outDir": "./dist/typescript",
+    "rootDir": "./src"
   },
   "references": [
     {
