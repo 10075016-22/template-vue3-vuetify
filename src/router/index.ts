@@ -36,7 +36,11 @@ const router = createRouter({
 router.beforeEach((to, from) => {
     const { authenticated } = userStore()
     if (to.name !== 'Login' && !authenticated) {
-        return { name: 'Login' }
+      return { name: 'Login' }
+    }
+    // Si estamos en el login y hay sesion activa, lo mandamos al dashboard
+    if (to.name === 'Login' && authenticated) {
+      return { name: 'dashboard' }
     }
 })
 
