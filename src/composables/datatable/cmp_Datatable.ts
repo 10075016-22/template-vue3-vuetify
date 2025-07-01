@@ -23,6 +23,10 @@ export function cmpDatatable(props: IPropsDatatable) {
     const bExportar = ref<boolean>(false) // v-model para menu exportar
     const keyGrid = ref<number>(0) // key para la grid
 
+    // formulario
+    const form     = ref<boolean>(false) // formulario para nuevo registro
+    const keyForm  = ref<number>(0) // key para el formulario
+
     // manejo de componentes asyncronos
     const componentsMap = {
         'FIELD_TEXT'   : defineAsyncComponent(() => import('@/components/datatable/components/CellText.vue')),
@@ -30,6 +34,7 @@ export function cmpDatatable(props: IPropsDatatable) {
         'FIELD_STATUS' : defineAsyncComponent(() => import('@/components/datatable/components/CellStatus.vue')),
         'FIELD_LOGO'   : defineAsyncComponent(() => import('@/components/datatable/components/CellLogo.vue')),
         'FIELD_YES_NO' : defineAsyncComponent(() => import('@/components/datatable/components/CellYesNo.vue')),
+        'FIELD_CHIP'   : defineAsyncComponent(() => import('@/components/datatable/components/CellChip.vue')),
     }
 
     // vue native methods
@@ -47,13 +52,11 @@ export function cmpDatatable(props: IPropsDatatable) {
             isLoading.value = true
             // validamos primero que table no sea null
             if(table.value) {
-                let URL = `/v1/${table.value.endpoint}`
+                let URL = `/v1/${table.value.endpoint}/datatable`
                 let params = ''
                 if(page && itemsPerPage) {
                     params += `&page=${page}&limit=${itemsPerPage}`
                 }
-
-                console.log({ props });
                 
                 if(!!props.campoFiltro && !!props.valorFiltro) {
                     params += `&field_id=${props.campoFiltro}&field_value=${props.valorFiltro}`
@@ -162,11 +165,22 @@ export function cmpDatatable(props: IPropsDatatable) {
         }
     }
 
+
+    // formulario 
+    const onNuevo = () => {
+        form.value = true
+        keyForm.value++
+    }
+
+
     return {
         isLoading,
         headers,
         items,
         table,
+
+        form,
+        keyForm,
 
         // pagination
         itemsPerPage,
@@ -182,6 +196,8 @@ export function cmpDatatable(props: IPropsDatatable) {
         // actions
         hasComponent,
         onGetAlignment,
-        onLoadItems
+        onLoadItems,
+        onNuevo,
+        onGetItems
     }
 }

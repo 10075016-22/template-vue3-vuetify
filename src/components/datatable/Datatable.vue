@@ -22,8 +22,8 @@
     <template v-slot:top>
       <v-toolbar height="45" class="mb-2" flat>
         <v-toolbar-title> 
-            <v-icon :color="(props.subDatatable || false) ? 'medium-emphasis' : 'primary'" size="small">{{ table?.icon }}</v-icon>
-            <span :class="['ml-2 text-subtitle-2', (props.subDatatable || false) ? '' : 'text-primary']">{{ table?.table }}</span>
+          <v-icon :color="!props?.valorFiltro ? 'primary' : 'medium-emphasis'" size="small">{{ table?.icon }}</v-icon>
+          <span :class="['ml-2 text-subtitle-2', !props?.valorFiltro ? 'text-primary' : '']">{{ table?.table }}</span>
         </v-toolbar-title>
         <v-spacer />
         <v-btn
@@ -34,6 +34,7 @@
           size="small"
           rounded="md"
           :text="$t('BUTTON.NEW')"
+          @click="onNuevo"
         />
       </v-toolbar>
     </template>
@@ -42,9 +43,10 @@
     <template v-slot:[`item.${field.key}`]="{ item }" v-for="(field, index) in headers" :key="index">
       <div :class="onGetAlignment(field.align || 'start')">
         <component 
-            :is="hasComponent(field.component)" 
-            :item="item" 
-            :field="field.key" />
+          :is="hasComponent(field.component)" 
+          :item="item" 
+          :field="field.key" 
+        />
       </div>
     </template>
     <!-- col group -->
@@ -67,8 +69,18 @@
       </tr>
     </template>
   </v-data-table-server>
+  <Form 
+    :show="form"
+    :idTable="props.idTable"
+    :title="table?.table || '' "
+    :endpoint="table?.endpoint || '' "
+    :key="keyForm"
+    @onCancel="($event) => form = $event"
+    @onRefresh="onGetItems(pageServer, itemsPerPage)"
+  />
 </template>
 <script lang="ts" setup>
+import Form from '@/components/form/Form.vue'
 import { cmpDatatable } from '@/composables/datatable/cmp_Datatable'
 
 import type{ IPropsDatatable } from '@/adapters/interfaces/datatable/IModelDatatable'
@@ -80,6 +92,9 @@ const {
   headers,
   items,
   table,
+
+  form,
+  keyForm,
 
   // pagination
   itemsPerPage,
@@ -94,6 +109,8 @@ const {
 
   hasComponent,
   onGetAlignment,
-  onLoadItems
+  onLoadItems,
+  onNuevo,
+  onGetItems
 } = cmpDatatable(props)
 </script>
